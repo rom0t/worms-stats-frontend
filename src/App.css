@@ -1,0 +1,84 @@
+/* Basic reset and dark mode styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Title section styling */
+.title-section {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 20px;
+  width: 80%; /* Adjust as needed */
+  max-width: 800px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 2em;
+  margin: 0 auto 20px; /* Center and add space below */
+}
+
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px; /* Add some space at the top */
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Chart section in the lower top left corner */
+.chart-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px; /* Adjust max width as needed */
+  background-color: #333333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; /* Space between the charts */
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333333; /* Adjust background color if needed */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  min-height: unset; /* Remove any fixed minimum height */
+  width: auto; /* Automatically adjust width */
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.pie-chart {
+  width: 100%;
+  max-width: 400px; /* Limit the chart's maximum size */
+}

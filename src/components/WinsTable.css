@@ -1,0 +1,26 @@
+.fancy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .fancy-table thead tr {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .fancy-table th, .fancy-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .fancy-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .fancy-table tbody tr:hover {
+    background-color: #ddd;
+  }
+  
