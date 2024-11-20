@@ -1,84 +1,126 @@
-/* Basic reset and dark mode styling */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #1a1a1a;
-  color: #e0e0e0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-  padding: 20px;
-}
-
-/* Title section styling */
+/* Title Section */
 .title-section {
   background-color: #333333;
   color: #ffffff;
-  padding: 20px;
-  width: 80%; /* Adjust as needed */
-  max-width: 800px;
-  border-radius: 10px;
+  padding: 20px 0;
+  width: 100%;
   text-align: center;
-  font-size: 2em;
-  margin: 0 auto 20px; /* Center and add space below */
+  font-size: 2.5em;
+  font-weight: bold;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 
-
-.page-container {
+/* Main App Container */
+.app-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 20px; /* Add some space at the top */
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  box-sizing: border-box;
+  background-color: #1a1a1a; /* Dark background for the whole page */
 }
 
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
+/* Content Section */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+  padding: 20px;
   gap: 20px;
-  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Chart section in the lower top left corner */
-.chart-section {
-  display: flex;
-  justify-content: center;
+/* Top Section: Line Chart */
+.top-section {
+  flex: 2; /* Allocate 2x space for the line chart */
   width: 100%;
-  max-width: 500px; /* Adjust max width as needed */
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* Bottom Section: Pie Charts */
+.bottom-section {
+  display: flex;
+  flex: 1; /* Allocate 1x space for the pie charts */
+  gap: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+/* Individual Chart Section */
+.chart-section {
+  flex: 1;
   background-color: #333333;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px; /* Space between the charts */
-}
-
-.chart-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #333333; /* Adjust background color if needed */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  min-height: unset; /* Remove any fixed minimum height */
-  width: auto; /* Automatically adjust width */
-  max-width: 400px;
-  margin: 0 auto;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px;
+  overflow: hidden;
 }
 
-.pie-chart {
+/* Chart Container */
+.chart-container {
   width: 100%;
-  max-width: 400px; /* Limit the chart's maximum size */
+  height: 100%;
+  position: relative; /* Position relative to place controls */
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333; /* Match the gray background */
+  border-radius: 8px;
+  position: absolute; /* Float on top of the chart */
+  top: 10px; /* Adjust spacing from the top */
+  width: calc(100% - 20px); /* Leave padding on the sides */
+  z-index: 10; /* Ensure it stays on top */
+}
+
+.chart-controls select {
+  font-size: 16px; /* Increase selection box font size */
+  padding: 5px; /* Add spacing for better usability */
+  border-radius: 5px;
+  border: 1px solid #aaa; /* Subtle border */
+  background-color: #444;
+  color: #fff; /* White text */
+}
+
+.line-chart canvas {
+  width: 100% !important; /* Force the canvas to take the full width */
+  height: 100% !important; /* Force the canvas to take the full height */
+  object-fit: contain; /* Ensure the chart scales proportionally */
+}
+
+
+/* Specific for Line Chart */
+.line-chart {
+  width: 100%;
+  height: 100%;
+}
+
+select {
+  font-size: 16px; /* Increase font size */
+  padding: 8px; /* Add padding for better spacing */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #333; /* Match the theme */
+  color: #fff; /* White text for readability */
+  border: 1px solid #555; /* Subtle border */
 }

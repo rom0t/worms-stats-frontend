@@ -10,7 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 interface TotalWinsData {
   player_combination: string;
-  wins: number;
+  years_won: number; // Add this property to match the data structure
   winner_name: string;
 }
 
@@ -29,23 +29,28 @@ const PieChartTotalWins: React.FC<{ title: string; apiEndpoint: string }> = ({ t
   }, [apiEndpoint]);
 
   const filteredData = data.filter(item => {
-    return selectedCombination === null || item.player_combination === selectedCombination;
+    const matches = selectedCombination === null || item.player_combination === selectedCombination;
+    console.log(`Item Combination: ${item.player_combination}, Selected Combination: ${selectedCombination}, Matches: ${matches}`);
+    return matches;
   });
 
   console.log(`Filtered data for ${title}:`, filteredData);
 
   const aggregatedData = filteredData.reduce((acc, item) => {
+    console.log(`Processing Item for Aggregation:`, item);
     const existing = acc.find(entry => entry.winner_name === item.winner_name);
     if (existing) {
-      existing.wins += item.wins;
+      existing.wins += item.years_won; // Use `years_won`
+      console.log(`Updated Existing: ${existing.winner_name} with Wins: ${existing.wins}`);
     } else {
-      acc.push({ winner_name: item.winner_name, wins: item.wins });
+      acc.push({ winner_name: item.winner_name, wins: item.years_won }); // Use `years_won`
+      console.log(`Added New: ${item.winner_name} with Wins: ${item.years_won}`);
     }
     return acc;
   }, [] as { winner_name: string; wins: number }[]);
-
-  console.log(`Aggregated data for ${title}:`, aggregatedData);
-
+  
+  console.log(`Aggregated Data for ${title}:`, aggregatedData);
+  
   const chartData = {
     labels: aggregatedData.map(item => item.winner_name),
     datasets: [

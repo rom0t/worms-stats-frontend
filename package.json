@@ -7,6 +7,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "clean": "rimraf node_modules/.cache",
     "start": "concurrently \"node server.js\" \"npm run dev\""
   },
   "dependencies": {
@@ -24,15 +25,19 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@types/sqlite3": "^3.1.11",
     "@vitejs/plugin-react": "^4.3.3",
     "concurrently": "^9.1.0",
     "eslint": "^9.13.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
+    "rimraf": "^6.0.1",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10"

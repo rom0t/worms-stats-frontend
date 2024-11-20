@@ -1,0 +1,22 @@
+.dropdown-container {
+    margin-bottom: 15px; /* Space between dropdowns */
+  }
+  
+  .dropdown-label {
+    display: block;
+    font-size: 18px; /* Adjust the label font size */
+    color: #ffffff; /* White text for dark background */
+    margin-bottom: 5px; /* Space between label and select */
+  }
+  
+  .dropdown-select {
+    font-size: 16px; /* Adjust font size */
+    padding: 10px; /* Add padding for spacing */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #333; /* Dark background */
+    color: #ffffff; /* White text */
+    border: 1px solid #555; /* Subtle border */
+    outline: none; /* Remove default focus outline */
+    width: 100%; /* Make it responsive */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }

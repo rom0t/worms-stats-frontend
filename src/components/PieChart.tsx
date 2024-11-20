@@ -5,6 +5,8 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { ChartOptions } from 'chart.js';
 import '../App.css';
+import './Dropdown.css';
+import Dropdown from './Dropdown.tsx';
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -119,18 +121,13 @@ const PieChart: React.FC<PieChartProps> = ({ title, showYearFilter, apiEndpoint 
       )}
 
       <div>
-        <label>Select Player Combination: </label>
-        <select
-          value={selectedCombination ?? ''}
-          onChange={e => setSelectedCombination(e.target.value || null)}
-        >
-          <option value="">All Combinations</option>
-          {uniqueCombinations.map(combination => (
-            <option key={combination} value={combination}>
-              {combination}
-            </option>
-          ))}
-        </select>
+          <Dropdown
+            id="combination-select"
+            label="Select Player Combination:"
+            options={Array.from(new Set(data.map((item) => item.player_combination)))}
+            value={selectedCombination}
+            onChange={setSelectedCombination}
+          />
       </div>
 
       <div style={{ display: "inline-block" }}>
